@@ -8,7 +8,8 @@
         "--share=network",
         "--socket=wayland",
         "--socket=x11",
-        "--device=dri"
+        "--device=dri",
+        "--filesystem=home"
     ],
     "command": "run",
     "build-options": {
