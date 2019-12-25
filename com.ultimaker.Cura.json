@@ -22,21 +22,30 @@
             "name": "Cura",
             "buildsystem": "simple",
             "build-commands": [
+
+                /* Unpack AppImage */
                 "chmod a+x Cura.AppImage",
                 "./Cura.AppImage --appimage-extract >/dev/null",
                 "chmod -R --reference=Cura.AppImage squashfs-root",
-                "mv squashfs-root/usr/bin /app/bin",
-                "mv squashfs-root/usr/share /app/share",
+                "rm ./Cura.AppImage",
+
+                /* Patch .desktop file with our new icon and binary locations */
                 "sed -i -e 's/Exec.*/Exec=run %F/' squashfs-root/cura.desktop",
                 "sed -i -e 's/Icon.*/Icon=com.ultimaker.Cura/' squashfs-root/cura.desktop",
-                "mkdir -p /app/share/applications",
-                "mkdir -p /app/share/icons/hicolor/256x256/apps",
+
+                /* Move things into place */
+                "mv squashfs-root/usr/bin squashfs-root/usr/share /app",
+                "mkdir -p /app/share/applications /app/share/icons/hicolor/256x256/apps",
                 "mv squashfs-root/cura.desktop /app/share/applications/com.ultimaker.Cura.desktop",
                 "mv squashfs-root/cura-icon.png /app/share/icons/hicolor/256x256/apps/com.ultimaker.Cura.png",
                 "mv squashfs-root/AppRun /app/bin/",
+
+                /* Create run script */
                 "echo 'QT_QPA_PLATFORM=xcb cura.sh $@' > /app/bin/run",
                 "chmod a+x /app/bin/run",
-                "rm ./Cura.AppImage"
+
+                /* Clean up */
+                "rm -rf squashfs-root"
             ],
             "sources": [
                 {
