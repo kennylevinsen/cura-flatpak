@@ -1,7 +1,7 @@
 {
     "app-id": "com.ultimaker.Cura",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "18.08",
+    "runtime-version": "19.08",
     "sdk": "org.freedesktop.Sdk",
     "separate-locales": false,
     "finish-args": [
