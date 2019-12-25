@@ -21,9 +21,9 @@
             "name": "Cura",
             "buildsystem": "simple",
             "build-commands": [
-                "chmod a+x Ultimaker_Cura-4.3.0.AppImage",
-                "./Ultimaker_Cura-4.3.0.AppImage --appimage-extract >/dev/null",
-                "chmod -R --reference=Ultimaker_Cura-4.3.0.AppImage squashfs-root",
+                "chmod a+x Cura.AppImage",
+                "./Cura.AppImage --appimage-extract >/dev/null",
+                "chmod -R --reference=Cura.AppImage squashfs-root",
                 "mv squashfs-root/usr/bin /app/bin",
                 "mv squashfs-root/usr/share /app/share",
                 "sed -i -e 's/Exec.*/Exec=run %F/' squashfs-root/cura.desktop",
@@ -35,13 +35,14 @@
                 "mv squashfs-root/AppRun /app/bin/",
                 "echo 'QT_QPA_PLATFORM=xcb cura.sh $@' > /app/bin/run",
                 "chmod a+x /app/bin/run",
-                "rm ./Ultimaker_Cura-4.3.0.AppImage"
+                "rm ./Cura.AppImage"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://github.com/Ultimaker/Cura/releases/download/4.3.0/Ultimaker_Cura-4.3.0.AppImage",
-                    "sha256": "5f083a16752bf0b72a748616696178c3f44e034fa8f2a66321f6b351fd84574a"
+                    "url": "https://github.com/Ultimaker/Cura/releases/download/v4.4.1/Cura-4.4.1.AppImage",
+                    "sha256": "2c01e9296181b084b6c2316aa25a310990a3c6b96690bfb87ccd00538d0196dc",
+                    "dest-filename": "Cura.AppImage"
                 }
             ]
         }
