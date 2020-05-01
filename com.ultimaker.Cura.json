@@ -50,8 +50,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://github.com/Ultimaker/Cura/releases/download/v4.4.1/Cura-4.4.1.AppImage",
-                    "sha256": "2c01e9296181b084b6c2316aa25a310990a3c6b96690bfb87ccd00538d0196dc",
+                    "url": "https://software.ultimaker.com/cura/Ultimaker_Cura-4.6.1.AppImage",
+                    "sha256": "eecd9f10667807f4dc21250526b18cd3ff4afddbccfa8860bac29be3aa7010cc",
                     "dest-filename": "Cura.AppImage"
                 }
             ]
